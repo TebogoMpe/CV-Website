@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<div class="container">
+    <h1>Add Skill</h1>
+<form method="POST">
+    <label for="skill_name">Skill:</label>
+    <input type="text" id="skill_name" name="skill_name" value="{{ skill[0] }}" required><br>
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" value="{{ skill[1] }}" required><br>
+
+    <label for="proficiency_level">Proficiency Level:</label>
+    <input type="text" id="proficiency_level" name="proficiency_level" value="{{ skill[2] }}" required><br>
+
+    <button type="submit">Update Skill</button>
+</form>
+<br>
+<a href="{{ url_for('skills') }}">Back to Skills</a>
+</div>

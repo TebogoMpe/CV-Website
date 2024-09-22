@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<div class="container">
+    <h1>Edit Work Experience</h1>
+<form method="POST">
+    <label for="company">Company:</label>
+    <input type="text" id="company" name="company" value="{{ work_experience[0] }}" required><br>
+
+    <label for="position">Position:</label>
+    <input type="text" id="position" name="position" value="{{ work_experience[1] }}" required><br>
+
+    <label for="start_year">Start Year:</label>
+    <input type="year" id="start_year" name="start_year" value="{{ work_experience[2] }}" required><br>
+
+    <label for="end_year">End Year:</label>
+    <input type="year" id="end_year" name="end_year" value="{{ work_experience[3] }}"><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required>{{ work_experience[4] }}</textarea><br>
+
+    <button type="submit">Update Work Experience</button>
+</form>
+<br>
+<a href="{{ url_for('work_experience') }}">Back to Work Experience</a>
+
+</div>

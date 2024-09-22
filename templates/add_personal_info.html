@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Personal Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Add Personal Information</h1>
+    <form action="{{ url_for('add_personal_info') }}" method="POST">
+        <div>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="phone">Phone:</label><br>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="bio">Bio:</label><br>
+            <textarea id="bio" name="bio" rows="4" cols="50"></textarea>
+        </div>
+        <br>
+
+        <button type="submit">Add Personal Information</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('personal_info') }}">Back to Personal Information</a>
+</div>
+</body>
+</html>

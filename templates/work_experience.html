@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/personal-info">Personal Info</a>
+        <a href="/education">Education</a>
+        <a href="/work-experience">Work Experience</a>
+        <a href="/skills">Skills</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <hr/>
+    <h1>Work Experience</h1>
+
+    <table border="1">
+        <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Start Year</th>
+            <th>End Year</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        {% for exp in work_experience %}
+        <tr>
+            <td>{{ exp[0] }}</td>  <!-- company -->
+            <td>{{ exp[1] }}</td>  <!-- position -->
+            <td>{{ exp[2] }}</td>  <!-- start_year -->
+            <td>{{ exp[3] }}</td>  <!-- end_year -->
+            <td>{{ exp[4] }}</td>  <!-- description -->
+            <td> 
+                <a href="{{ url_for('edit_work_experience', id=exp[5]) }}">Edit</a> |
+                <a href="{{ url_for('delete_work_experience', id=exp[5]) }}" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+            </td>  
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Button to add new work experience using an anchor tag -->
+    <a href="{{ url_for('add_work_experience') }}">
+        <button>Add New Work Experience</button>
+    </a>
+
+    <br/><br/>
+    
+    <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>
+

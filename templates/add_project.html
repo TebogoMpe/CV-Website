@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Add Project</h1>
+    <form action="{{ url_for('add_project') }}" method="POST">
+        <div>
+            <label for="project_name">Project Name:</label><br>
+            <input type="text" id="project_name" name="project_name" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+        </div>
+        <br>
+
+        <div>
+            <label for="start_date">Start Date:</label><br>
+            <input type="date" id="start_date" name="start_date" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="end_date">End Date:</label><br>
+            <input type="date" id="end_date" name="end_date">
+        </div>
+        <br>
+
+        <button type="submit">Add Project</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('projects') }}">Back to Projects</a>
+</div>
+</body>
+</html>

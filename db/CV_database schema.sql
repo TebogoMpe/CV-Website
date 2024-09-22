@@ -1,0 +1,1 @@
+SELECT * FROM cv_database.personal_info;

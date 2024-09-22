@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/personal-info">Personal Info</a>
+        <a href="/education">Education</a>
+        <a href="/work-experience">Work Experience</a>
+        <a href="/skills">Skills</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <hr/>
+    <h1>Education</h1>
+    
+    <table border="1">
+        <tr>
+            <th>School</th>
+            <th>Achievement</th>
+            <th>Start Year</th>
+            <th>End Year</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        {% for edu in education %}
+        <tr>
+            <td>{{ edu[0] }}</td>  <!-- school -->
+            <td>{{ edu[1] }}</td>  <!-- achievement -->
+            <td>{{ edu[2] }}</td>  <!-- start_year -->
+            <td>{{ edu[3] }}</td>  <!-- end_yaer -->
+            <td>{{ edu[4] }}</td>  <!-- description -->
+            <td>
+                <a href="{{ url_for('edit_education', id=edu[5]) }}">Edit</a> |
+                <a href="{{ url_for('delete_education', id=edu[5]) }}" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Button to add education -->
+    <a href="{{ url_for('add_education') }}">
+        <button>Add Education</button>
+    </a>
+
+    <br/><br/>
+    
+    <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/personal-info">Personal Info</a>
+        <a href="/education">Education</a>
+        <a href="/work-experience">Work Experience</a>
+        <a href="/skills">Skills</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <hr/>
+
+    <h1>Projects</h1>
+    
+    <table border="1">
+        <tr>
+            <th>Project Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+        </tr>
+        {% for proj in projects %}
+        <tr>
+            <td>{{ proj[0] }}</td>  <!-- project_name -->
+            <td>{{ proj[1] }}</td>  <!-- description -->
+            <td>{{ proj[2] }}</td>  <!-- start_date -->
+            <td>{{ proj[3] }}</td>  <!-- end_date -->
+            <td>
+                <a href="{{ url_for('edit_project', id=proj[4]) }}">Edit</a> |
+                <a href="{{ url_for('delete_project', id=proj[4]) }}" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <!-- Button to Add New Project -->
+    <a href="{{ url_for('add_project') }}">
+        <button>Add New Project</button>
+    </a>
+
+    <br/><br/>
+    
+    <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

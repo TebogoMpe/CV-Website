@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Skill</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Add Skill</h1>
+    <form action="{{ url_for('add_skill') }}" method="POST">
+        <div>
+            <label for="skill_name">Skill Name:</label><br>
+            <input type="text" id="skill_name" name="skill_name" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="category">Category:</label><br>
+            <input type="text" id="category" name="category" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="proficiency_level">Proficiency Level:</label><br>
+            <input type="text" id="proficiency_level" name="proficiency_level" required>
+        </div>
+        <br>
+
+        <button type="submit">Add Skill</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('skills') }}">Back to Skills</a>
+</div>
+</body>
+</html>

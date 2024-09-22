@@ -1,0 +1,192 @@
+/* General color scheme */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #357ab7;
+    --text-color: #333;
+    --background-color: #f0f2f5;
+    --accent-color: #ffffff;
+}
+
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full-width container */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Header styling */
+h1 {
+    text-align: left;
+    color: var(--text-color);
+    font-size: 2.2rem;
+    margin: 0.5px;
+}
+
+/* Navigation styling */
+nav {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    margin: 0 15px;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Horizontal rule for separation */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+/* Table styling */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f7f7f7;
+    color: #555;
+    font-size: 1rem;
+}
+
+table td {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button styling */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Links styling */
+a {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Back to Home styling */
+a[href="{{ url_for('home') }}"] {
+    display: block;
+    text-align: left;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 10px;
+}
+
+form label {
+    margin-bottom: 2px; /* Space below labels */
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 5px; /* Reduced padding */
+    margin-bottom: 2px; /* Reduced margin under input boxes */
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form textarea {
+    min-height: 80px; /* Slightly reduce height */
+}
+
+form button {
+    padding: 6px 10px; /* Reduced padding */
+    font-size: 0.85rem; /* Smaller font size */
+    color: white;
+    background-color: var(--primary-color); /* Blue color for the button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+
+p {
+    margin-bottom: 5px;
+}
+
+ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    /* Styles for devices with a width of 768px or less */
+    body {
+        font-size: 14px; /* Adjust font size */
+    }
+
+    nav {
+        flex-direction: column; /* Stack navigation items vertically */
+    }
+}
+
