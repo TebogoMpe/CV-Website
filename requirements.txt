@@ -3,3 +3,4 @@ Flask-MySQL==1.5.1
 Flask-WTF==1.0.0
 gunicorn==20.1.0  # Web server for running your app in production
 python-dotenv
+mysql-connector-python
