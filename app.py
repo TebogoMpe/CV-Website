@@ -151,7 +151,7 @@ def education():
     if mydb:
         try:
             cursor = mydb.cursor()
-            cursor.execute("SELECT school, achievement, start_year, end_year, description, id FROM Education")
+            cursor.execute("SELECT school, achievement, start_year, end_year, description, id FROM education")
             education_data = cursor.fetchall()  # Fetch all the records
             cursor.close()  # Close the cursor
             mydb.close()    # Close the connection
@@ -176,7 +176,7 @@ def add_education():
         if mydb:
             try:
                 cursor = mydb.cursor()
-                sql = "INSERT INTO Education (school, achievement, start_year, end_year, description) VALUES (%s, %s, %s, %s, %s)"
+                sql = "INSERT INTO education (school, achievement, start_year, end_year, description) VALUES (%s, %s, %s, %s, %s)"
                 values = (school, achievement, start_year, end_year, description)
                 cursor.execute(sql, values)
                 mydb.commit()
@@ -207,7 +207,7 @@ def edit_education(id):
             try:
                 cursor = mydb.cursor()
                 sql = """
-                    UPDATE Education
+                    UPDATE education
                     SET school=%s, achievement=%s, start_year=%s, end_year=%s, description=%s
                     WHERE id=%s
                 """
@@ -226,7 +226,7 @@ def edit_education(id):
     else:
         if mydb:
             cursor = mydb.cursor()
-            sql = "SELECT school, achievement, start_year, end_year, description FROM Education WHERE id=%s"
+            sql = "SELECT school, achievement, start_year, end_year, description FROM education WHERE id=%s"
             cursor.execute(sql, (id,))
             education_data = cursor.fetchone()
 
@@ -245,7 +245,7 @@ def delete_education(id):
     if mydb:
         try:
             cursor = mydb.cursor()
-            sql = "DELETE FROM Education WHERE id = %s"
+            sql = "DELETE FROM education WHERE id = %s"
             cursor.execute(sql, (id,))
             mydb.commit()
             cursor.close()
@@ -265,7 +265,7 @@ def work_experience():
     if mydb:
         try:
             cursor = mydb.cursor()
-            cursor.execute("SELECT company, position, start_year, end_year, description, id FROM Work_Experience")
+            cursor.execute("SELECT company, position, start_year, end_year, description, id FROM work_experience")
             work_experience_data = cursor.fetchall()  # Fetch all the records
             cursor.close()  # Close the cursor
             mydb.close()    # Close the connection
@@ -291,7 +291,7 @@ def add_work_experience():
         if mydb:
             try:
                 cursor = mydb.cursor()
-                sql = "INSERT INTO Work_Experience (company, position, start_year, end_year, description) VALUES (%s, %s, %s, %s, %s)"
+                sql = "INSERT INTO work_experience (company, position, start_year, end_year, description) VALUES (%s, %s, %s, %s, %s)"
                 values = (company, position, start_year, end_year, description)
                 cursor.execute(sql, values)
                 mydb.commit()
@@ -325,7 +325,7 @@ def edit_work_experience(id):
             try:
                 cursor = mydb.cursor()
                 sql = """
-                    UPDATE Work_Experience
+                    UPDATE work_experience
                     SET company=%s, position=%s, start_year=%s, end_year=%s, description=%s
                     WHERE id=%s
                 """
@@ -346,7 +346,7 @@ def edit_work_experience(id):
     else:
         if mydb:
             cursor = mydb.cursor()
-            sql = "SELECT company, position, start_year, end_year, description FROM Work_Experience WHERE id=%s"
+            sql = "SELECT company, position, start_year, end_year, description FROM work_experience WHERE id=%s"
             cursor.execute(sql, (id,))
             work_experience_data = cursor.fetchone()
 
@@ -365,7 +365,7 @@ def delete_work_experience(id):
     if mydb:
         try:
             cursor = mydb.cursor()
-            sql = "DELETE FROM Work_Experience WHERE id = %s"
+            sql = "DELETE FROM work_experience WHERE id = %s"
             cursor.execute(sql, (id,))
             mydb.commit()
             cursor.close()
@@ -386,7 +386,7 @@ def skills():
     if mydb:
         try:
             cursor = mydb.cursor()
-            cursor.execute("SELECT skill_name, category, proficiency_level, id FROM Skills")
+            cursor.execute("SELECT skill_name, category, proficiency_level, id FROM skills")
             skills_data = cursor.fetchall()  # Fetch all records
             cursor.close()  # Close the cursor
             mydb.close()    # Close the connection
@@ -407,7 +407,7 @@ def add_skill():
         if mydb:
             try:
                 cursor = mydb.cursor()
-                sql = "INSERT INTO Skills (skill_name, category, proficiency_level) VALUES (%s,%s, %s)"
+                sql = "INSERT INTO skills (skill_name, category, proficiency_level) VALUES (%s,%s, %s)"
                 values = (skill_name, category, proficiency_level)
                 cursor.execute(sql, values)
                 mydb.commit()
@@ -436,7 +436,7 @@ def edit_skill(id):
             try:
                 cursor = mydb.cursor()
                 sql = """
-                    UPDATE Skills
+                    UPDATE skills
                     SET skill_name=%s, category=%s, proficiency_level=%s
                     WHERE id=%s
                 """
@@ -474,7 +474,7 @@ def delete_skill(id):
     if mydb:
         try:
             cursor = mydb.cursor()
-            sql = "DELETE FROM Skills WHERE id = %s"
+            sql = "DELETE FROM skills WHERE id = %s"
             cursor.execute(sql, (id,))
             mydb.commit()
             cursor.close()
@@ -495,7 +495,7 @@ def projects():
     if mydb:
         try:
             cursor = mydb.cursor()
-            cursor.execute("SELECT project_name, description, start_date, end_date, id FROM Projects")
+            cursor.execute("SELECT project_name, description, start_date, end_date, id FROM projects")
             projects_data = cursor.fetchall()  # Fetch all records
             cursor.close()  # Close the cursor
             mydb.close()    # Close the connection
@@ -519,7 +519,7 @@ def add_project():
         if mydb:
             try:
                 cursor = mydb.cursor()
-                sql = "INSERT INTO Projects (project_name, description, start_date, end_date) VALUES (%s, %s, %s, %s)"
+                sql = "INSERT INTO projects (project_name, description, start_date, end_date) VALUES (%s, %s, %s, %s)"
                 values = (project_name, description, start_date, end_date)
                 cursor.execute(sql, values)
                 mydb.commit()
@@ -549,7 +549,7 @@ def edit_project(id):
             try:
                 cursor = mydb.cursor()
                 sql = """
-                    UPDATE Projects
+                    UPDATE projects
                     SET project_name=%s, description=%s, start_date=%s, end_date=%s
                     WHERE id=%s
                 """
@@ -568,7 +568,7 @@ def edit_project(id):
     else:
         if mydb:
             cursor = mydb.cursor()
-            sql = "SELECT project_name, description, start_date, end_date FROM Projects WHERE id=%s"
+            sql = "SELECT project_name, description, start_date, end_date FROM projects WHERE id=%s"
             cursor.execute(sql, (id,))
             project_data = cursor.fetchone()
 
@@ -587,7 +587,7 @@ def delete_project(id):
     if mydb:
         try:
             cursor = mydb.cursor()
-            sql = "DELETE FROM Projects WHERE id = %s"
+            sql = "DELETE FROM projects WHERE id = %s"
             cursor.execute(sql, (id,))
             mydb.commit()
             cursor.close()
@@ -612,7 +612,7 @@ def contact():
         if mydb:
             try:
                 cursor = mydb.cursor()
-                sql = "INSERT INTO Contact (name, email, message) VALUES (%s, %s, %s)"
+                sql = "INSERT INTO contact (name, email, message) VALUES (%s, %s, %s)"
                 values = (name, email, message)
                 cursor.execute(sql, values)
                 mydb.commit()
