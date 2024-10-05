@@ -40,7 +40,7 @@ def personal_info():
     if mydb:
         try:
             cursor = mydb.cursor()
-            cursor.execute("SELECT name, email, phone, bio, id FROM Personal_Info")
+            cursor.execute("SELECT name, email, phone, bio, id FROM personal_info")
             personal_info_data = cursor.fetchall()  # Fetch all rows
             cursor.close()  # Close the cursor
             mydb.close()    # Close the connection
@@ -64,7 +64,7 @@ def add_personal_info():
         if mydb:
             try:
                 cursor = mydb.cursor()
-                sql = "INSERT INTO Personal_Info (name, email, phone, bio) VALUES (%s, %s, %s, %s)"
+                sql = "INSERT INTO personal_info (name, email, phone, bio) VALUES (%s, %s, %s, %s)"
                 values = (name, email, phone, bio)
                 cursor.execute(sql, values)
                 mydb.commit()
@@ -94,7 +94,7 @@ def edit_personal_info(id):
             try:
                 cursor = mydb.cursor()
                 sql = """
-                    UPDATE Personal_Info
+                    UPDATE personal_info
                     SET name=%s, email=%s, phone=%s, bio=%s
                     WHERE id=%s
                 """
@@ -113,7 +113,7 @@ def edit_personal_info(id):
     else:
         if mydb:
             cursor = mydb.cursor()
-            sql = "SELECT name, email, phone, bio FROM Personal_Info WHERE id=%s"
+            sql = "SELECT name, email, phone, bio FROM personal_info WHERE id=%s"
             cursor.execute(sql, (id,))
             personal_info_data = cursor.fetchone()
 
@@ -132,7 +132,7 @@ def delete_personal_info(id):
     if mydb:
         try:
             cursor = mydb.cursor()
-            sql = "DELETE FROM Personal_Info WHERE id = %s"
+            sql = "DELETE FROM personal_info WHERE id = %s"
             cursor.execute(sql, (id,))
             mydb.commit()
             cursor.close()
