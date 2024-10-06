@@ -2,24 +2,21 @@
 
 <div class="container">
     <h1>Edit Education</h1>
-<form method="POST">
-    <label for="school">School:</label>
-    <input type="text" id="school" name="school" value="{{ education[0] }}" required><br>
+    <form method="POST">
+        <label for="school">School:</label>
+        <input type="text" id="school" name="school" value="{{ education[0] }}" required><br>
 
-    <label for="achievement">Achievement:</label>
-    <input type="text" id="achievement" name="achievement" value="{{ education[1] }}" required><br>
+        <label for="achievement">Achievement:</label>
+        <textarea id="achievement" name="achievement" required>{{ education[1] }}</textarea><br>
 
-    <label for="start_year">Start Year:</label>
-    <input type="year" id="start_year" name="start_year" value="{{ education[2] }}" required><br>
+        <label for="start_year">Start Year:</label>
+        <input type="year" id="start_year" name="start_year" value="{{ education[2] }}" required><br>
 
-    <label for="end_year">End Year:</label>
-    <input type="year" id="end_year" name="end_year" value="{{ education[3] }}"><br>
+        <label for="end_year">End Year:</label>
+        <input type="year" id="end_year" name="end_year" value="{{ education[3] }}"><br>
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required>{{ education[4] }}</textarea><br>
-
-    <button type="submit">Update Education</button>
-</form>
-<br>
-<a href="{{ url_for('education') }}">Back to Education</a>
+        <button type="submit">Update Education</button>
+    </form>
+    <br>
+    <a href="{{ url_for('education') }}">Back to Education</a>
 </div>
